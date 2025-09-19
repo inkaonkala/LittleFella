@@ -3467,6 +3467,7 @@ GameObject:
   - component: {fileID: 417361110}
   - component: {fileID: 417361113}
   - component: {fileID: 417361115}
+  - component: {fileID: 417361116}
   m_Layer: 12
   m_Name: momma
   m_TagString: Untagged
@@ -3643,6 +3644,28 @@ CapsuleCollider2D:
   m_Offset: {x: -0.03077189, y: -0.2924601}
   m_Size: {x: 3.7664795, y: 10.8050785}
   m_Direction: 0
+--- !u!95 &417361116
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 417361108}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3b9f02ee4f718dc4b991439c8e2b7fe7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &439843847
 GameObject:
   m_ObjectHideFlags: 0
