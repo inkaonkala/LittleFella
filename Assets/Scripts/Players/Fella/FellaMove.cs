@@ -18,10 +18,23 @@ public class FellaMove : MonoBehaviour
     private FellaInput input;
     private bool isGrounded;
 
+    private Animator animatoor;
+    //flip the character :(
+    private SpriteRenderer sr;
+
+
+
+    void Start()
+    {
+        body = GetComponent<Rigidbody2D>();
+        animatoor = GetComponent<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
+
     private void Awake()
     {
         input = new FellaInput();
-        
+
     }
 
     private void OnEnable()
@@ -38,9 +51,13 @@ public class FellaMove : MonoBehaviour
         input.Fella.Disable();
     }
 
-    void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
+    void Update()
+   {
+        animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
+
+
+        if (movement.x != 0f)
+            sr.flipX = movement.x > 0f;   // if this is reversed, change to `> 0f`
     }
 
     void FixedUpdate()
@@ -48,6 +65,7 @@ public class FellaMove : MonoBehaviour
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
 
         body.linearVelocity = new Vector2(movement.x * moveSpeed, body.linearVelocity.y);
+
 
     //    Debug.Log("Is Grounded: " + isGrounded);
 
