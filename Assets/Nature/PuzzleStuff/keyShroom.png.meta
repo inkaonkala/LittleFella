@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: b7b44374b02ecac4d8f5b2459d537af0
+guid: d7dbbc85d9b989048a13f48564d8d936
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1484594504851958777
-    second: pinkShroom_0
+      213: -33930419043029992
+    second: keyShroom_0
   - first:
-      213: 1761317723852593946
-    second: pinkShroom_1
+      213: -4072126517678861648
+    second: keyShroom_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pinkShroom_0
+      name: keyShroom_0
       rect:
         serializedVersion: 2
         x: 213
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9fba23126d65a9410800000000000000
-      internalID: 1484594504851958777
+      spriteID: 81c2cd1b674778ff0800000000000000
+      internalID: -33930419043029992
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pinkShroom_1
+      name: keyShroom_1
       rect:
         serializedVersion: 2
-        x: 45
+        x: 44
         y: 0
-        width: 300
-        height: 385
+        width: 311
+        height: 391
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a1b55d25325717810800000000000000
-      internalID: 1761317723852593946
+      spriteID: 0b29d49d186ec77c0800000000000000
+      internalID: -4072126517678861648
       vertices: []
       indices: 
       edges: []
@@ -172,9 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      pinkShroom_0: 1484594504851958777
-      pinkShroom_1: 1761317723852593946
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
