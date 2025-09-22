@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      whiteShroomyyB_0: 4524788050671133621
+      whiteShroomyyB_1: -8061406278795794327
+      whiteShroomyyB_2: 6386154556050526188
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

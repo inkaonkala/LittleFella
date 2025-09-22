@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      bigSky_0: -9007336883909941205
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
