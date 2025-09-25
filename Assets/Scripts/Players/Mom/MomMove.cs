@@ -17,6 +17,18 @@ public class MomMove : MonoBehaviour
     private bool isGrounded;
     private int jumpsLeft;
 
+    private Animator animatoor;
+    private SpriteRenderer sr;
+
+
+    void Start()
+    {
+        jumpsLeft = jumpMax;
+        body = GetComponent<Rigidbody2D>();
+        animatoor = GetComponent<Animator>();
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
+
     private void Awake()
     {
         input = new MomInput();
@@ -35,10 +47,12 @@ public class MomMove : MonoBehaviour
         input.Mom.Disable();
     }
 
-    void Start()
-    {
-        body = GetComponent<Rigidbody2D>();
-        jumpsLeft = jumpMax;
+    void Update()
+   {
+        animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
+
+        if (movement.x != 0f)
+            sr.flipX = movement.x > 0f;   // if this is reversed, change to `> 0f`
     }
 
     void FixedUpdate()
