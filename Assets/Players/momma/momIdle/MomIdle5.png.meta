@@ -397,7 +397,18 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MomIdle5_0: 4033032735009342923
+      MomIdle5_1: 4285120096429030900
+      MomIdle5_10: -4189658547165268288
+      MomIdle5_2: 7071675660079452134
+      MomIdle5_3: -226218044287495267
+      MomIdle5_4: -4256410137578501247
+      MomIdle5_5: -3494583214180492834
+      MomIdle5_6: 3153298302198669972
+      MomIdle5_7: 6971877414693875124
+      MomIdle5_8: 7773335892504068791
+      MomIdle5_9: 7919297081042705647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

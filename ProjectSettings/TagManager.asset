@@ -21,6 +21,7 @@ TagManager:
   - MomLayer
   - KeyLayer
   - LockLayer
+  - Enemy
   - Enemies
   - 
   - 
