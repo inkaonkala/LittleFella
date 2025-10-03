@@ -152,17 +152,6 @@ public partial class @MomInput: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""c4c7957c-ac86-4422-bf3e-1c456f907781"",
-                    ""path"": ""<DualSenseGamepadHID>/rightTriggerButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Smack"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
                     ""id"": ""357b02da-bc0d-4eaa-a3f3-98f12b1abafd"",
                     ""path"": ""2DVector"",

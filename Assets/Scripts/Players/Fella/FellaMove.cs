@@ -19,7 +19,6 @@ public class FellaMove : MonoBehaviour
     private bool isGrounded;
 
     private Animator animatoor;
-    //flip the character :(
     private SpriteRenderer sr;
 
 
