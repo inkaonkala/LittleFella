@@ -18,19 +18,26 @@ public class SpiderLeg : MonoBehaviour
 	public float recoverTime = 0.4f;
 	public float pauseTime = 1f;
 
+	public bool controlledByBoss = true;
+	public bool IsBusy => busy;
+
 	bool busy;
 
 	void Start()
     {
+
 		if (home == null)
 		{
-			GameObject h = new GameObject(name + "_Home");
+//			GameObject h = new GameObject(name + "_Home");
+			var h = new GameObject(name + "_home");
 			h.transform.position = target.position;
 			home = h.transform;
 		}
+		if (killZone) killZone.enabled = false;
 
-		killZone.enabled = false;
-		StartCoroutine(AttackLoop());
+	//	killZone.enabled = false;
+	if (!controlledByBoss)
+			StartCoroutine(AttackLoop());
     }
 
 	IEnumerator AttackLoop()
@@ -51,6 +58,7 @@ public class SpiderLeg : MonoBehaviour
 		{
 			t += Time.deltaTime;
 			float k = Mathf.SmoothStep(0, 1, t / duration);
+			target.position = Vector3.Lerp(from, to, k);
 			yield return null;
 		}
 		target.position = to;
@@ -77,6 +85,31 @@ public class SpiderLeg : MonoBehaviour
 
 		busy = false;
 		
+	}
+
+	public IEnumerator AttackOnce(Vector3 worldPos)
+	{
+		if (busy)
+			yield break;
+
+		busy = true;
+
+		Vector3 startPos = target.position;
+		Vector3 liftPos = startPos + Vector3.up * windupHeight;
+
+		yield return MoveTarget(startPos, liftPos, windupTime);
+
+		// slam to mom
+		if (killZone) 
+			killZone.enabled = true;
+		yield return MoveTarget(liftPos, worldPos, slamTime);
+		if (killZone)
+			killZone.enabled = false; // i might want to keep it active thou
+
+		//recover
+		yield return MoveTarget(target.position, home.position, recoverTime);
+
+		busy = false;
 	}
 
 }

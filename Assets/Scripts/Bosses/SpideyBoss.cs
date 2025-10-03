@@ -1,4 +1,7 @@
 using UnityEngine;
+using System.Collections;
+using System.Linq;
+
 
 public class SpideyBoss : MonoBehaviour
 {
@@ -21,25 +24,68 @@ public class SpideyBoss : MonoBehaviour
 
 	The eyes follow Momma
 */
-	private int leg_num;
+	[Header("Refs")]
+	public Transform mom;
+	public SpiderLeg[] legs;
 
-    void Start()
+	[Header("Behavior")]
+	public float engageDistance = 7f;
+	public float pickInterval = 0.8f;
+	public int maxLegsMoving = 2;
+
+	System.Random rng;
+
+
+//	private int leg_num;
+
+    void Awake()
     {
-        
+		rng = new System.Random();
+
+		//attach legs to the bos by activating them to loopyloop
+		foreach (var le in legs)
+			if (le != null) le.controlledByBoss = true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	void OnEnable() => StartCoroutine(Brainz());
+	void OnDisable() => StopAllCoroutines();
 
 /*
-	void LegMoveLoop()
+	IEnumerator LegMoveLoop() AKA BRAINS!
 	{
 		Choose random leg
 			- Move up, turn(random nmb in radius), move down
 		Wait (random time in radius)
 	}
 	*/
+	IEnumerator Brainz()
+	{
+		while (true)
+		{
+			if (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
+			{
+				int busy = legs.Count(le => le != null && le.IsBusy);
+				int canLaunch = Mathf.Max(0, maxLegsMoving - busy);
+
+				if (canLaunch > 0)
+				{
+					var free = legs.Where(le => le != null && !le.IsBusy).ToList();
+					if (free.Count > 0)
+					{
+						int toLaunch = Mathf.Clamp(rng.Next(1, canLaunch + 1), 1, free.Count);
+						for (int i = 0; i < toLaunch; i++)
+						{
+							int idx = rng.Next(free.Count);
+							var leg = free[idx];
+							free.RemoveAt(idx);
+
+							StartCoroutine(leg.AttackOnce(mom.position));
+						}
+					}
+				}
+
+			}
+			yield return new WaitForSeconds(pickInterval);
+		}
+	} 
 }
