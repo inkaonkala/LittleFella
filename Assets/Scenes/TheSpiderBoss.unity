@@ -388,6 +388,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &171900065
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +565,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &244683840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1349,6 +1351,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &492987100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,6 +3442,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &1046740409
 GameObject:
   m_ObjectHideFlags: 0
@@ -3494,6 +3498,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &1082998413
 GameObject:
   m_ObjectHideFlags: 0
@@ -4287,19 +4292,19 @@ MonoBehaviour:
   m_SolverEditorData:
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
+  - color: {r: 0, g: 1, b: 0.8869717, a: 1}
+    showGizmo: 1
+  - color: {r: 0.95149136, g: 1, b: 0, a: 1}
+    showGizmo: 1
+  - color: {r: 0.2747419, g: 0.9245283, b: 0.84854084, a: 1}
     showGizmo: 1
   - color: {r: 0, g: 1, b: 0, a: 1}
     showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
+  - color: {r: 0, g: 1, b: 0.9286413, a: 1}
     showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
+  - color: {r: 1, g: 0.9935299, b: 0, a: 1}
     showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
-    showGizmo: 1
-  - color: {r: 0, g: 1, b: 0, a: 1}
+  - color: {r: 0, g: 0.5850754, b: 1, a: 1}
     showGizmo: 1
 --- !u!114 &1301525859
 MonoBehaviour:
@@ -4313,6 +4318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80bd0a75dd3b64292876fbc01a12488d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mom: {fileID: 0}
+  legs: []
+  engageDistance: 7
+  pickInterval: 0.8
+  maxLegsMoving: 2
 --- !u!1 &1343957706
 GameObject:
   m_ObjectHideFlags: 0
@@ -5323,6 +5333,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &1753748583
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,6 +5814,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1 &2081566987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5958,6 +5970,7 @@ MonoBehaviour:
   slamTime: 0.1
   recoverTime: 0.4
   pauseTime: 1
+  controlledByBoss: 1
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
