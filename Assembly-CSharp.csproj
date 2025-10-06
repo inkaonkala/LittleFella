@@ -68,6 +68,7 @@
     <Compile Include="Assets\Scripts\Players\HealthBar.cs" />
     <Compile Include="Assets\Scripts\Puzzles\CarryController.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Bugs.cs" />
+    <Compile Include="Assets\Scripts\Save\ClearSave.cs" />
     <Compile Include="Assets\Scripts\Puzzles\Caryable.cs" />
     <Compile Include="Assets\Scripts\Players\Mom\MomMove.cs" />
   </ItemGroup>

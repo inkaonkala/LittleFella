@@ -13,6 +13,7 @@ public class Loader : MonoBehaviour
 
     void Start()
     {
+
         if (!SaveManager.TryGet(out var scene, out var pos, out var _))
             return;
 
@@ -24,5 +25,5 @@ public class Loader : MonoBehaviour
         if (fella)
             fella.position = pos + (Vector3)FellaOffset;
     }
-    
+
 }

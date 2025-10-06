@@ -105,6 +105,7 @@ public class MomMove : MonoBehaviour
         animatoor.SetTrigger("Hit");
     }
     // ========================================
+    
     private void TryJump()
     {
         if (isGrounded || jumpsLeft > 0)
