@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      WhiteShroomy_0: 762163525610447078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
