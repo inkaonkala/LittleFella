@@ -48,6 +48,7 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\6000.1.0f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bosses\SpiderLeg.cs" />
     <Compile Include="Assets\Scripts\Puzzles\ColorType.cs" />
     <Compile Include="Assets\Scripts\Players\BurbBar.cs" />
     <Compile Include="Assets\Scripts\Puzzles\LiftBoardZone.cs" />
@@ -60,6 +61,7 @@
     <Compile Include="Assets\Scripts\Puzzles\PuzzleController.cs" />
     <Compile Include="Assets\Scripts\Camera\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Players\Fella\FellaCarryable.cs" />
+    <Compile Include="Assets\Scripts\Bosses\SpideyBoss.cs" />
     <Compile Include="Assets\Scripts\Save\SaveManager.cs" />
     <Compile Include="Assets\Scripts\Save\Loader.cs" />
     <Compile Include="Assets\Scripts\Save\MainMenu.cs" />
