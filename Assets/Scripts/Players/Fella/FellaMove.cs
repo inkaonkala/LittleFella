@@ -21,6 +21,9 @@ public class FellaMove : MonoBehaviour
     private Animator animatoor;
     private SpriteRenderer sr;
 
+    public float climbSpeed = 3.5f;
+    private bool inClimbZone = false;
+    private float ogGravity = 1f;
 
 
     void Start()
@@ -28,6 +31,7 @@ public class FellaMove : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animatoor = GetComponent<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        ogGravity = body.gravityScale;
     }
 
     private void Awake()
@@ -47,31 +51,49 @@ public class FellaMove : MonoBehaviour
 
     private void OnDisable()
     {
+        input.Fella.Move.performed -= ctx => movement = ctx.ReadValue<Vector2>(); // clean up to be safe
+        input.Fella.Move.canceled  -= ctx => movement = Vector2.zero;
+        input.Fella.Jump.performed -= ctx => TryJump();
+        input.Fella.Burb.performed -= ctx => TryBurb();
         input.Fella.Disable();
     }
 
     void Update()
    {
         animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
+        animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f);
 
 
         if (movement.x != 0f)
-            sr.flipX = movement.x > 0f;   // if this is reversed, change to `> 0f`
+            sr.flipX = movement.x > 0f;
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
+        if (!inClimbZone)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
 
-        body.linearVelocity = new Vector2(movement.x * moveSpeed, body.linearVelocity.y);
-
-
-    //    Debug.Log("Is Grounded: " + isGrounded);
-
+            body.linearVelocity = new Vector2(movement.x * moveSpeed, body.linearVelocity.y);
+        }
+        else
+        {
+            body.gravityScale = 0f;
+            float vy = movement.y * climbSpeed;
+            body.linearVelocity = new Vector2(0f, vy);
+        }
     }
+    
 
     private void TryJump()
     {
+        if (inClimbZone)
+        {
+            ExitClimb();
+            body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForceFella);
+            return;
+        }
+        
         if (isGrounded)
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForceFella);
@@ -104,6 +126,33 @@ public class FellaMove : MonoBehaviour
             burbs--;
             Debug.Log("Mommy too far! Burbs: " + burbs);
         }
+    }
+
+    // FIND Climb zone
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Klimbable"))
+        {
+            inClimbZone = true;
+            body.gravityScale = 0f;
+            //prevent sudden fall
+            body.linearVelocity = new Vector2(0f, 0f);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Klimbable"))
+        {
+            ExitClimb();
+        }
+    }
+
+    private void ExitClimb()
+    {
+        inClimbZone = false;
+        body.gravityScale = ogGravity;
+        animatoor.SetBool("isClimbing", false);
     }
 
     void OnDrawGizmosSelected()

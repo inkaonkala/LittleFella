@@ -20,6 +20,11 @@ public class MomMove : MonoBehaviour
     private Animator animatoor;
     private SpriteRenderer sr;
 
+    //Climb
+    public float climbSpeed = 3.5f;
+    private bool inClimbZone = false;
+    private float ogGravity = 1f; // check what it actually is!!
+
     private void Awake()
     {
         input = new MomInput();
@@ -31,6 +36,7 @@ public class MomMove : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         animatoor = GetComponent<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
+        ogGravity = body.gravityScale;
     }
 
     private void OnEnable()
@@ -43,10 +49,10 @@ public class MomMove : MonoBehaviour
                 input.Mom.Jump.performed += ctx => TryJump();
                 input.Mom.Smack.performed += OnSmack;
                 */
-                input.Mom.Move.performed += OnMove;
+        input.Mom.Move.performed += OnMove;
         input.Mom.Move.canceled  += OnMoveCanceled;
         input.Mom.Jump.performed += OnJump;
-        input.Mom.Smack.performed += OnSmack;   // <-- this matches the delegate        input.Mom.Move.performed += OnMove;
+        input.Mom.Smack.performed += OnSmack;
         input.Mom.Move.canceled  += OnMoveCanceled;
         input.Mom.Jump.performed += OnJump;
     }
@@ -64,27 +70,36 @@ public class MomMove : MonoBehaviour
     void Update()
     {
         animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
+        animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f);
 
         if (movement.x != 0f)
-            sr.flipX = movement.x > 0f;   // if this is reversed, change to `> 0f`
+            sr.flipX = movement.x > 0f;
             
     }
 
     void FixedUpdate()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
+        if (!inClimbZone)
+        {
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
 
-        if (isGrounded && body.linearVelocity.y <= 0f)
-            jumpsLeft = jumpMax;
+            if (isGrounded && body.linearVelocity.y <= 0f)
+                jumpsLeft = jumpMax;
 
-        body.linearVelocity = new Vector2(movement.x * moveSpeed, body.linearVelocity.y);
+            body.linearVelocity = new Vector2(movement.x * moveSpeed, body.linearVelocity.y);
+        }
+        else
+        {
+            body.gravityScale = 0f;
+            float vy = movement.y * climbSpeed;
+            body.linearVelocity = new Vector2(0f, vy);
+        }
 
-    //    Debug.Log("Is Grounded: " + isGrounded);
-        //body.MovePosition(body.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
 
 
-    // ===== Handlers (correct signatures) =====
+    // ===== Handlers =====
+
     private void OnMove(InputAction.CallbackContext ctx)
     {
         movement = ctx.ReadValue<Vector2>();
@@ -104,10 +119,19 @@ public class MomMove : MonoBehaviour
     {
         animatoor.SetTrigger("Hit");
     }
-    // ========================================
-    
+
+
+
     private void TryJump()
     {
+        //exit climbZone if needed!!!!
+        if (inClimbZone)
+        {
+            eixtClimb();
+            body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
+            return;
+        }
+
         if (isGrounded || jumpsLeft > 0)
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForce);
@@ -119,6 +143,35 @@ public class MomMove : MonoBehaviour
                 jumpsLeft = jumpMax - 1;
         }
     }
+
+    // FIND Climb zone
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Klimbable"))
+        {
+            inClimbZone = true;
+            body.gravityScale = 0f;
+            //prevent sudden fall
+            body.linearVelocity = new Vector2(0f, 0f);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Klimbable"))
+        {
+            eixtClimb();
+        }
+    }
+
+    private void eixtClimb()
+    {
+        inClimbZone = false;
+        body.gravityScale = ogGravity;
+        animatoor.SetBool("isClimbing", false);
+    }
+
+
 
     void OnDrawGizmosSelected()
     {
