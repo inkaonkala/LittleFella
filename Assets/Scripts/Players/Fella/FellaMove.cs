@@ -134,6 +134,7 @@ public class FellaMove : MonoBehaviour
         if (other.CompareTag("Klimbable"))
         {
             inClimbZone = true;
+            animatoor.SetBool("isClimbing", true);
             body.gravityScale = 0f;
             //prevent sudden fall
             body.linearVelocity = new Vector2(0f, 0f);
