@@ -91,12 +91,13 @@ public class FellaMove : MonoBehaviour
         {
             ExitClimb();
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForceFella);
-            return;
+            animatoor.SetTrigger("isJumping");
         }
         
         if (isGrounded)
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForceFella);
+            animatoor.SetTrigger("isJumping");
         }
     }
 
