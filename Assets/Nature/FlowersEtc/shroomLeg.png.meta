@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 316079713d3b6594ba7dec3afe9932aa
+guid: f8ffd335d7f4e504fa37c34d1430e0f2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -683690611971878697
-    second: shruumcap_0
+      213: -4637717426554560280
+    second: shroomLeg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: shruumcap_0
+      name: shroomLeg_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 68
-        height: 68
+        x: 40
+        y: 0
+        width: 340
+        height: 600
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d09521c20b0386f0800000000000000
-      internalID: -683690611971878697
+      spriteID: 8e0a39d729483afb0800000000000000
+      internalID: -4637717426554560280
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      shruumcap_0: -683690611971878697
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
