@@ -43,12 +43,6 @@ public class MomMove : MonoBehaviour
     {
         input.Mom.Enable();
 
-        /*
-                input.Mom.Move.performed += ctx => movement = ctx.ReadValue<Vector2>();
-                input.Mom.Move.canceled += ctx => movement = Vector2.zero;
-                input.Mom.Jump.performed += ctx => TryJump();
-                input.Mom.Smack.performed += OnSmack;
-                */
         input.Mom.Move.performed += OnMove;
         input.Mom.Move.canceled  += OnMoveCanceled;
         input.Mom.Jump.performed += OnJump;
@@ -170,8 +164,6 @@ public class MomMove : MonoBehaviour
         body.gravityScale = ogGravity;
         animatoor.SetBool("isClimbing", false);
     }
-
-
 
     void OnDrawGizmosSelected()
     {

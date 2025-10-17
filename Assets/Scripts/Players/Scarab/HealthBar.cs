@@ -4,9 +4,11 @@ using UnityEngine.InputSystem;
 
 public class HealthBar : MonoBehaviour
 {
-    public Image healthFill;
-    public float maxHealth = 100f;
-    private float currentHealth;
+    public Image[] healthPieces;
+
+    public int maxHealth = 5;
+    private int currentHealth;
+
 
     void Start()
     {
@@ -14,15 +16,15 @@ public class HealthBar : MonoBehaviour
         updateHealthUI();
     }
 
-    public void TakeDamage(float amount)
+    public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth); //keeps the value between min and max (0 - 100)
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
      
-       updateHealthUI();
+        updateHealthUI();
     }
 
-    public void Heal(float amount)
+    public void Heal(int amount)
     {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
@@ -31,9 +33,10 @@ public class HealthBar : MonoBehaviour
 
     private void updateHealthUI()
     {
-        if (healthFill != null)
+        for (int i = 0; i < healthPieces.Length; i++)
         {
-            healthFill.fillAmount = currentHealth / maxHealth;
+            if (healthPieces[i] != null)
+                healthPieces[i].enabled = i < currentHealth;
         }
     }
 
@@ -41,7 +44,7 @@ public class HealthBar : MonoBehaviour
     {
         if (Keyboard.current.hKey.wasPressedThisFrame)
         {
-            TakeDamage(40f);
+            TakeDamage(1);
         }
     }
 

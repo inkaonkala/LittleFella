@@ -513,7 +513,7 @@ GameObject:
   - component: {fileID: 31836132}
   - component: {fileID: 31836131}
   m_Layer: 5
-  m_Name: Body
+  m_Name: Bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -528,16 +528,21 @@ RectTransform:
   m_GameObject: {fileID: 31836129}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 550240991}
+  - {fileID: 2016498629}
+  - {fileID: 756334180}
+  - {fileID: 1777618606}
+  - {fileID: 784257912}
   m_Father: {fileID: 893273860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 230}
-  m_SizeDelta: {x: 80, y: 80}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 23, y: 208}
+  m_SizeDelta: {x: 75, y: 50}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &31836131
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -558,7 +563,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -3966044189379602213, guid: 4652bf7ff5d5e314d901fb2441a10e5c, type: 3}
+  m_Sprite: {fileID: -415446080585258355, guid: a148ecce2df1f3c4aa3ba9bc23fee8fc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12075,7 +12080,7 @@ GameObject:
   - component: {fileID: 550240991}
   - component: {fileID: 550240992}
   m_Layer: 5
-  m_Name: healtbar_piece1
+  m_Name: healpiece1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12090,11 +12095,11 @@ Transform:
   m_GameObject: {fileID: 550240990}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.831, y: -0.604, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 24.187508, y: 12.562485, z: 0}
+  m_LocalScale: {x: 18.75, y: 18.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1795596621}
+  m_Father: {fileID: 31836130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &550240992
 SpriteRenderer:
@@ -15208,11 +15213,11 @@ Transform:
   m_GameObject: {fileID: 741146937}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -477, y: 220.9, z: 0}
+  m_LocalPosition: {x: -476.9, y: 221.9, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893273860}
+  m_Father: {fileID: 1298476508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &741146939
 SpriteRenderer:
@@ -15746,7 +15751,7 @@ GameObject:
   - component: {fileID: 756334180}
   - component: {fileID: 756334181}
   m_Layer: 5
-  m_Name: healtbar_piece3
+  m_Name: healpiece3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15761,11 +15766,11 @@ Transform:
   m_GameObject: {fileID: 756334179}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.156, y: -0.324, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 40.687523, y: 16.500015, z: 0}
+  m_LocalScale: {x: 18.75, y: 18.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1795596621}
+  m_Father: {fileID: 31836130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &756334181
 SpriteRenderer:
@@ -16211,7 +16216,7 @@ GameObject:
   - component: {fileID: 784257912}
   - component: {fileID: 784257913}
   m_Layer: 5
-  m_Name: healtbar_piece5
+  m_Name: healpiece5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16226,11 +16231,11 @@ Transform:
   m_GameObject: {fileID: 784257911}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.135, y: 0.021, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 58.687515, y: 25.12497, z: 0}
+  m_LocalScale: {x: 18.75, y: 18.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1795596621}
+  m_Father: {fileID: 31836130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &784257913
 SpriteRenderer:
@@ -17376,11 +17381,9 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1795596621}
-  - {fileID: 1383133214}
-  - {fileID: 741146938}
-  - {fileID: 1764087065}
   - {fileID: 31836130}
+  - {fileID: 1298476508}
+  - {fileID: 1795596621}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -26304,6 +26307,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lift: {fileID: 1736265304}
   requiredKeys: 4
+--- !u!1 &1298476507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1298476508}
+  m_Layer: 5
+  m_Name: Burbs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1298476508
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298476507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1383133214}
+  - {fileID: 741146938}
+  - {fileID: 1764087065}
+  m_Father: {fileID: 893273860}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1299561775
 GameObject:
   m_ObjectHideFlags: 0
@@ -28189,11 +28230,11 @@ Transform:
   m_GameObject: {fileID: 1383133213}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -468.2, y: 242.6, z: 0}
+  m_LocalPosition: {x: -467.6, y: 243.20001, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893273860}
+  m_Father: {fileID: 1298476508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1383133215
 SpriteRenderer:
@@ -35982,11 +36023,11 @@ Transform:
   m_GameObject: {fileID: 1764087064}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -458.2, y: 220.5, z: 0}
+  m_LocalPosition: {x: -457.9, y: 221.5, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 893273860}
+  m_Father: {fileID: 1298476508}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1764087066
 SpriteRenderer:
@@ -36228,7 +36269,7 @@ GameObject:
   - component: {fileID: 1777618606}
   - component: {fileID: 1777618607}
   m_Layer: 5
-  m_Name: healtbar_piece4
+  m_Name: healpiece4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36243,11 +36284,11 @@ Transform:
   m_GameObject: {fileID: 1777618605}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.641, y: -0.147, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 49.6875, y: 20.250015, z: 0}
+  m_LocalScale: {x: 18.75, y: 18.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1795596621}
+  m_Father: {fileID: 31836130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1777618607
 SpriteRenderer:
@@ -36835,7 +36876,7 @@ GameObject:
   - component: {fileID: 1795596621}
   - component: {fileID: 1795596622}
   m_Layer: 5
-  m_Name: bow
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36850,15 +36891,10 @@ Transform:
   m_GameObject: {fileID: 1795596620}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -462.3, y: 226.9, z: 0}
+  m_LocalPosition: {x: -464.4, y: 230.90002, z: 0}
   m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 550240991}
-  - {fileID: 2016498629}
-  - {fileID: 756334180}
-  - {fileID: 1777618606}
-  - {fileID: 784257912}
+  m_Children: []
   m_Father: {fileID: 893273860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1795596622
@@ -36904,13 +36940,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 13
-  m_Sprite: {fileID: -415446080585258355, guid: a148ecce2df1f3c4aa3ba9bc23fee8fc, type: 3}
+  m_SortingOrder: 9
+  m_Sprite: {fileID: -3966044189379602213, guid: 4652bf7ff5d5e314d901fb2441a10e5c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 4.03, y: 2.22}
+  m_Size: {x: 5.41, y: 5.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -42963,7 +42999,7 @@ GameObject:
   - component: {fileID: 2016498629}
   - component: {fileID: 2016498630}
   m_Layer: 5
-  m_Name: healtbar_piece2
+  m_Name: healpiece2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42978,11 +43014,11 @@ Transform:
   m_GameObject: {fileID: 2016498628}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.346, y: -0.511, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 32.250023, y: 13.8749695, z: 0}
+  m_LocalScale: {x: 18.75, y: 18.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1795596621}
+  m_Father: {fileID: 31836130}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2016498630
 SpriteRenderer:

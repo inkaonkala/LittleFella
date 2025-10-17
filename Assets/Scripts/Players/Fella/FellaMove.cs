@@ -118,7 +118,7 @@ public class FellaMove : MonoBehaviour
         float distanceToMom = Vector2.Distance(transform.position, health.transform.position);
         if (distanceToMom <= burbRange)
         {
-            health.Heal(30f);
+            health.Heal(1);
             burbs--;
             Debug.Log("Mommy healed. Burbs: " + burbs);
         }
