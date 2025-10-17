@@ -103,6 +103,8 @@ public class FellaMove : MonoBehaviour
 
     private void TryBurb()
     {
+        if (!isGrounded || inClimbZone)
+            return;
         Debug.Log("BURB!");
         if (burbs <= 0)
         {
@@ -114,7 +116,7 @@ public class FellaMove : MonoBehaviour
             Debug.Log("No health refrence :(");
             return;
         }
-
+        animatoor.SetTrigger("isBurbing");
         float distanceToMom = Vector2.Distance(transform.position, health.transform.position);
         if (distanceToMom <= burbRange)
         {
