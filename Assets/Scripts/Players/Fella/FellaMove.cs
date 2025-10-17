@@ -12,6 +12,7 @@ public class FellaMove : MonoBehaviour
     public int burbs = 3;
     public float burbRange = 3f;
     public HealthBar health; // health only on momma, this is a ref
+    public Transform mom;
 
     private Rigidbody2D body;
     private Vector2 movement;
@@ -105,28 +106,30 @@ public class FellaMove : MonoBehaviour
     {
         if (!isGrounded || inClimbZone)
             return;
-        Debug.Log("BURB!");
+
         if (burbs <= 0)
         {
             Debug.Log("No Burbs left!");
             return;
         }
+
         if (health == null)
         {
             Debug.Log("No health refrence :(");
             return;
         }
+
         animatoor.SetTrigger("isBurbing");
-        float distanceToMom = Vector2.Distance(transform.position, health.transform.position);
+        float distanceToMom = Vector2.Distance(transform.position, mom.position);
+        burbs--;
+
         if (distanceToMom <= burbRange)
         {
             health.Heal(1);
-            burbs--;
             Debug.Log("Mommy healed. Burbs: " + burbs);
         }
         else
         {
-            burbs--;
             Debug.Log("Mommy too far! Burbs: " + burbs);
         }
     }

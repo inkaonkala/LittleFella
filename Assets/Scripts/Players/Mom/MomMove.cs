@@ -25,6 +25,12 @@ public class MomMove : MonoBehaviour
     private bool inClimbZone = false;
     private float ogGravity = 1f; // check what it actually is!!
 
+    //HEAL
+    public HealthBar scarabHealth;
+    private bool canControl = true;
+
+
+
     private void Awake()
     {
         input = new MomInput();
@@ -47,8 +53,12 @@ public class MomMove : MonoBehaviour
         input.Mom.Move.canceled  += OnMoveCanceled;
         input.Mom.Jump.performed += OnJump;
         input.Mom.Smack.performed += OnSmack;
-        input.Mom.Move.canceled  += OnMoveCanceled;
-        input.Mom.Jump.performed += OnJump;
+
+        if (scarabHealth != null)
+        {
+            scarabHealth.OnZeroHealth += HandleDown;
+            scarabHealth.OnHealthUp += HandlegetUp;
+        }
     }
 
     private void OnDisable()
@@ -59,10 +69,22 @@ public class MomMove : MonoBehaviour
         input.Mom.Smack.performed -= OnSmack;
 
         input.Mom.Disable();
+
+        if (scarabHealth != null)
+        {
+            scarabHealth.OnZeroHealth -= HandleDown;
+            scarabHealth.OnHealthUp -= HandlegetUp;
+        }
     }
 
     void Update()
     {
+        if (!canControl)
+        {
+            animatoor.SetBool("isWalking", false);
+            return;
+        }
+        
         animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
         animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f);
 
@@ -73,6 +95,12 @@ public class MomMove : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (!canControl)
+        {
+            body.linearVelocity = new Vector2(0f, body.linearVelocity.y);
+            return;
+        }
+
         if (!inClimbZone)
         {
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.15f, groundLayer);
@@ -114,11 +142,29 @@ public class MomMove : MonoBehaviour
         animatoor.SetTrigger("Hit");
     }
 
+    private void HandleDown()
+    {
+        canControl = false;
+        animatoor.SetTrigger("isDown");
+        if (inClimbZone)
+            eixtClimb();
+        body.linearVelocity = new Vector2(0f,  body.linearVelocity.y);
+    }
+    
+    private void HandlegetUp()
+    {
+        if (canControl) 
+            return;
+        canControl = true;
+        animatoor.SetTrigger("getUp");
+    }
 
 
     private void TryJump()
     {
         //exit climbZone if needed!!!!
+        if (!canControl)
+            return;
         if (inClimbZone)
         {
             eixtClimb();

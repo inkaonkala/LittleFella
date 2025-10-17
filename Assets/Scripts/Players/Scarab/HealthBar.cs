@@ -8,27 +8,50 @@ public class HealthBar : MonoBehaviour
 
     public int maxHealth = 5;
     private int currentHealth;
+    public int CurrentHealth => currentHealth;
+
+    //add System.events for momma
+    public System.Action<int, int> OnHealthChange;
+    public System.Action OnZeroHealth;
+    public System.Action OnHealthUp;
 
 
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
         updateHealthUI();
+        OnHealthChange?.Invoke(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int amount)
     {
-        currentHealth -= amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-     
+        int prev = currentHealth;
+        //currentHealth -= amount;
+        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
+
         updateHealthUI();
+        
+        if (currentHealth != prev)
+        {
+            OnHealthChange?.Invoke(currentHealth, maxHealth);
+            if (prev > 0 && currentHealth == 0)
+                OnZeroHealth?.Invoke();
+        }
     }
 
     public void Heal(int amount)
     {
-        currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        int prev = currentHealth;
+        //currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         updateHealthUI();
+
+        if (currentHealth != prev)
+        {
+            OnHealthChange?.Invoke(currentHealth, maxHealth);
+            if (prev == 0 && currentHealth > 0)
+                OnHealthUp?.Invoke();
+        }
     }
 
     private void updateHealthUI()
