@@ -44,7 +44,10 @@ public class SpideyBoss : MonoBehaviour
 
 		//attach legs to the bos by activating them to loopyloop
 		foreach (var le in legs)
-			if (le != null) le.controlledByBoss = true;
+		{
+			if (le != null) 
+				le.controlledByBoss = true;
+		}
     }
 
 	void OnEnable() => StartCoroutine(Brainz());
@@ -62,27 +65,36 @@ public class SpideyBoss : MonoBehaviour
 	{
 		while (true)
 		{
-			if (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
-			{
-				int busy = legs.Count(le => le != null && le.IsBusy);
-				int canLaunch = Mathf.Max(0, maxLegsMoving - busy);
+			bool engaged = mom && Vector2.Distance(transform.position, mom.position) <= engageDistance;
+            if (engaged)
+            {
+                // Count how many are truly in motion right now
+                int moving = legs.Count(le => le && le.IsBusy);
+                int slots  = Mathf.Max(0, maxLegsMoving - moving);
 
-				if (canLaunch > 0)
-				{
-					var free = legs.Where(le => le != null && !le.IsBusy).ToList();
-					if (free.Count > 0)
-					{
-						int toLaunch = Mathf.Clamp(rng.Next(1, canLaunch + 1), 1, free.Count);
-						for (int i = 0; i < toLaunch; i++)
-						{
-							int idx = rng.Next(free.Count);
-							var leg = free[idx];
-							free.RemoveAt(idx);
+                if (slots > 0)
+                {
+                    // Only consider legs that are free AND off cooldown
+                    var free = legs.Where(le => le && !le.IsBusy && le.IsReady).ToList();
 
-							StartCoroutine(leg.AttackOnce(mom.position));
-						}
-					}
-				}
+                    if (free.Count > 0)
+                    {
+                        // Launch 1..slots, but never more than what's free
+                        int toLaunch = Mathf.Clamp(rng.Next(1, slots + 1), 1, free.Count);
+                        // Snapshot mom’s position ONCE per pick
+                        Vector3 targetPos = mom.position;
+
+                        for (int i = 0; i < toLaunch; i++)
+                        {
+                            int idx = rng.Next(free.Count);
+                            var leg = free[idx];
+                            free.RemoveAt(idx);
+
+                            // fire-and-forget; the leg will mark itself busy & cooldown
+                            StartCoroutine(leg.AttackOnce(targetPos));
+                        }
+                    }
+                }
 
 			}
 			yield return new WaitForSeconds(pickInterval);
