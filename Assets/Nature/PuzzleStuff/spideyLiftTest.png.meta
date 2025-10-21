@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spideyLiftTest_0: 8213655548862941039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

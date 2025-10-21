@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FellaBurb1_0: -465909993651038750
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

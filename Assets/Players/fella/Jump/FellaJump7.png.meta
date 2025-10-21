@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      FellaJump7_0: -2510981076199604241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -197,7 +197,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      burb1_0: 8912205194984378174
+      burb1_1: 4647889462960037111
+      burb1_2: 2146638883191182291
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

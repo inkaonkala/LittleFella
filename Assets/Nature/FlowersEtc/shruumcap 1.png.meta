@@ -297,7 +297,14 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shruumcap 1_0: 1227911436627437832
+      shruumcap 1_1: 6459809413297742292
+      shruumcap 1_2: 897784189021674160
+      shruumcap 1_3: 1942304265118417797
+      shruumcap 1_4: 762782171805422360
+      shruumcap 1_5: 4986478907082316681
+      shruumcap 1_6: -7452869409993317939
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
