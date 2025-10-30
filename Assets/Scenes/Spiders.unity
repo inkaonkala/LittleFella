@@ -7890,9 +7890,9 @@ PolygonCollider2D:
       - {x: 7.4249997, y: -1.7249999}
       - {x: 7.461804, y: -1.7128061}
       - {x: 7.574536, y: -1.757781}
-      - {x: 7.6877313, y: -1.7523727}
-      - {x: 7.9977283, y: -1.7408679}
-      - {x: 8.099435, y: -1.4128059}
+      - {x: 7.5746484, y: -1.7410638}
+      - {x: 7.6301594, y: -1.6650989}
+      - {x: 7.787286, y: -1.3347687}
       - {x: 7.4999995, y: -1.33125}
       - {x: 7.2749996, y: -1.2937499}
       - {x: 6.6937494, y: -1.2937499}
@@ -8091,12 +8091,12 @@ PolygonCollider2D:
       - {x: 11.006249, y: -1.4062499}
       - {x: 10.66875, y: -1.36875}
       - {x: 9.862499, y: -1.36875}
-      - {x: 9.468749, y: -1.4062499}
-      - {x: 9.292522, y: -1.3676016}
-      - {x: 9.105719, y: -1.3797957}
-      - {x: 9.005404, y: -1.4175253}
-      - {x: 9.075, y: -1.6499999}
-      - {x: 9.137814, y: -1.7884951}
+      - {x: 9.604461, y: -1.3610138}
+      - {x: 9.388653, y: -1.3732562}
+      - {x: 9.3081875, y: -1.415975}
+      - {x: 9.291553, y: -1.4435377}
+      - {x: 9.309115, y: -1.5979748}
+      - {x: 9.442043, y: -1.7726657}
       - {x: 9.443667, y: -1.8004593}
       - {x: 9.493816, y: -1.8063266}
       - {x: 9.656249, y: -1.8}
@@ -13983,7 +13983,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 15
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 4
@@ -30976,6 +30976,97 @@ PolygonCollider2D:
       - {x: 0.6367912, y: 2.6950455}
       - {x: -0.4599222, y: 2.7024739}
   m_UseDelaunayMesh: 0
+--- !u!1 &1046901557
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046901558}
+  - component: {fileID: 1046901560}
+  - component: {fileID: 1046901559}
+  m_Layer: 0
+  m_Name: MomStopper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1046901558
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046901557}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1295676561}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1046901559
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046901557}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 19.961662, y: -2.22797}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 2.562088, y: 0.9281727}
+  m_EdgeRadius: 0
+--- !u!114 &1046901560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046901557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d2e264174418b44b4c29167c293a1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1047618074
 GameObject:
   m_ObjectHideFlags: 0
@@ -39972,6 +40063,7 @@ Transform:
   - {fileID: 467383897}
   - {fileID: 1736265303}
   - {fileID: 915145758}
+  - {fileID: 1046901558}
   m_Father: {fileID: 1985178307}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1295676562
