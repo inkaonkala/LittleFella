@@ -29,6 +29,9 @@ public class MomMove : MonoBehaviour
     public HealthBar scarabHealth;
     private bool canControl = true;
 
+    //TheStraw
+    public bool hasWeapon = false;
+
 
 
     private void Awake()
@@ -51,7 +54,7 @@ public class MomMove : MonoBehaviour
 
         input.Mom.Move.performed += OnMove;
         input.Mom.Move.canceled  += OnMoveCanceled;
-        input.Mom.Jump.performed += OnJump;
+        input.Mom.Jump.performed += OnJump;      
         input.Mom.Smack.performed += OnSmack;
 
         if (scarabHealth != null)
@@ -139,6 +142,8 @@ public class MomMove : MonoBehaviour
 
     private void OnSmack(InputAction.CallbackContext ctx)
     {
+        if (!hasWeapon)
+            return;
         animatoor.SetTrigger("Hit");
     }
 
@@ -150,15 +155,20 @@ public class MomMove : MonoBehaviour
             eixtClimb();
         body.linearVelocity = new Vector2(0f,  body.linearVelocity.y);
     }
-    
+
     private void HandlegetUp()
     {
-        if (canControl) 
+        if (canControl)
             return;
         canControl = true;
         animatoor.SetTrigger("getUp");
     }
 
+    //Smack
+    public void RefreshSmackBind()
+    {
+        
+    }
 
     private void TryJump()
     {
