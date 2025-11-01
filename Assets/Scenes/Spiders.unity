@@ -27404,6 +27404,7 @@ GameObject:
   m_Component:
   - component: {fileID: 733038706}
   - component: {fileID: 733038705}
+  - component: {fileID: 733038707}
   m_Layer: 0
   m_Name: flowerSpirit_0
   m_TagString: Untagged
@@ -27454,8 +27455,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 4050469580411021486, guid: bd1fc8946790a5e45a71bc2fcc8d42dc, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 1372474375343249861, guid: cd68f035e59974346b17187c4ec1bdda, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -27475,12 +27476,34 @@ Transform:
   m_GameObject: {fileID: 733038704}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -11.265472, y: 37.634594, z: 0}
+  m_LocalPosition: {x: -10.17, y: 37.19, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1327589320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &733038707
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733038704}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 50ba019ee5c41b24daa1d45383ab89bc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &737631561
 GameObject:
   m_ObjectHideFlags: 0
@@ -34546,7 +34569,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 4524788050671133621, guid: 48d2b9bbeed5ded4fa85d42db4f753f9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -42337,7 +42360,7 @@ Transform:
   m_GameObject: {fileID: 1205512493}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 250.35, y: 3.56, z: 0}
+  m_LocalPosition: {x: 311.31, y: 35, z: 0}
   m_LocalScale: {x: 0.3, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
