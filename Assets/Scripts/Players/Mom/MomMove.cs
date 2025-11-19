@@ -89,7 +89,7 @@ public class MomMove : MonoBehaviour
         }
         
         animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
-        animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f);
+        //animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f);
 
         if (movement.x != 0f)
             sr.flipX = movement.x > 0f;

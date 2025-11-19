@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      theStrawLeaves_0: 921945815399805813
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
