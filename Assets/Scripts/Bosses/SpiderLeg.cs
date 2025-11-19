@@ -31,12 +31,14 @@ public class SpiderLeg : MonoBehaviour
 //			GameObject h = new GameObject(name + "_Home");
 			var h = new GameObject(name + "_home");
 			h.transform.position = target.position;
+			h.transform.SetParent(target.parent, true);
 			home = h.transform;
 		}
-		if (killZone) killZone.enabled = false;
+		if (killZone) 
+			killZone.enabled = false;
 
 	//	killZone.enabled = false;
-	if (!controlledByBoss)
+		if (!controlledByBoss)
 			StartCoroutine(AttackLoop());
     }
 
