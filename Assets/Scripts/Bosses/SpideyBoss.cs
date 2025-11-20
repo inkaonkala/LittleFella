@@ -62,7 +62,7 @@ public class SpideyBoss : MonoBehaviour
 	{
 		while (true)
 		{
-			if (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
+			while (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
 			{
 				int busy = legs.Count(le => le != null && le.IsBusy);
 				int canLaunch = Mathf.Max(0, maxLegsMoving - busy);
