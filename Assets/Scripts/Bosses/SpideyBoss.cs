@@ -29,7 +29,7 @@ public class SpideyBoss : MonoBehaviour
 	public SpiderLeg[] legs;
 
 	[Header("Behavior")]
-	public float engageDistance = 7f;
+	public float engageDistance = 6f;
 	public float pickInterval = 0.8f;
 	public int maxLegsMoving = 2;
 
@@ -62,29 +62,32 @@ public class SpideyBoss : MonoBehaviour
 	{
 		while (true)
 		{
-			while (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
+			if (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
 			{
-				int busy = legs.Count(le => le != null && le.IsBusy);
-				int canLaunch = Mathf.Max(0, maxLegsMoving - busy);
+			//	while (mom && Vector2.Distance(transform.position, mom.position) <= engageDistance)
+			//	{
+					int busy = legs.Count(le => le != null && le.IsBusy);
+					int canLaunch = Mathf.Max(0, maxLegsMoving - busy);
 
-				if (canLaunch > 0)
-				{
-					var free = legs.Where(le => le != null && !le.IsBusy).ToList();
-					if (free.Count > 0)
+					if (canLaunch > 0)
 					{
-						int toLaunch = Mathf.Clamp(rng.Next(1, canLaunch + 1), 1, free.Count);
-						for (int i = 0; i < toLaunch; i++)
+						var free = legs.Where(le => le != null && !le.IsBusy).ToList();
+						if (free.Count > 0)
 						{
-							int idx = rng.Next(free.Count);
-							var leg = free[idx];
-							free.RemoveAt(idx);
+							int toLaunch = Mathf.Clamp(rng.Next(1, canLaunch + 1), 1, free.Count);
+							for (int i = 0; i < toLaunch; i++)
+							{
+								int idx = rng.Next(free.Count);
+								var leg = free[idx];
+								free.RemoveAt(idx);
 
-							StartCoroutine(leg.AttackOnce(mom.position));
+								StartCoroutine(leg.AttackOnce(mom.position));
+							}
 						}
 					}
-				}
 
-			}
+				}
+//			}
 			yield return new WaitForSeconds(pickInterval);
 		}
 	} 
