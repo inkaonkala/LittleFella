@@ -24625,7 +24625,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 166.7
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 238.11485
+  m_PointLightInnerRadius: 186.8905
   m_PointLightOuterRadius: 246.28716
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
@@ -29635,7 +29635,8 @@ Transform:
   m_LocalPosition: {x: -10.22, y: 35.71, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2005636166}
   m_Father: {fileID: 1327589320}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &733038707
@@ -54426,9 +54427,9 @@ PolygonCollider2D:
       - {x: -36.40875, y: -3.5249999}
       - {x: -36.821247, y: -4.35}
       - {x: -36.821247, y: -4.3875}
-      - {x: 37.503746, y: -4.3875}
-      - {x: 37.503746, y: 4.2749996}
-      - {x: 37.316246, y: 4.3124995}
+      - {x: 44.04252, y: -4.709079}
+      - {x: 39.858864, y: 4.2237988}
+      - {x: 36.994667, y: 4.2053065}
   m_UseDelaunayMesh: 0
 --- !u!1 &1453980348
 GameObject:
@@ -75574,6 +75575,97 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2005636165
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2005636166}
+  - component: {fileID: 2005636167}
+  m_Layer: 0
+  m_Name: FowerLadLight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2005636166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005636165}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 0.97156054, w: -0.23679143}
+  m_LocalPosition: {x: -1, y: 8.82, z: 0}
+  m_LocalScale: {x: 1.2500001, y: 1.2500001, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 733038706}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -160.111}
+--- !u!114 &2005636167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005636165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 073797afb82c5a1438f328866b10b3f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ComponentVersion: 2
+  m_LightType: 3
+  m_BlendStyleIndex: 0
+  m_FalloffIntensity: 0.061
+  m_Color: {r: 0.8396226, g: 0.44753468, b: 0.44753468, a: 1}
+  m_Intensity: 0.9
+  m_LightVolumeIntensity: 1
+  m_LightVolumeEnabled: 0
+  m_ApplyToSortingLayers: 00000000
+  m_LightCookieSprite: {fileID: 0}
+  m_DeprecatedPointLightCookieSprite: {fileID: 0}
+  m_LightOrder: 0
+  m_AlphaBlendOnOverlap: 0
+  m_OverlapOperation: 0
+  m_NormalMapDistance: 3
+  m_NormalMapQuality: 2
+  m_UseNormalMap: 0
+  m_ShadowsEnabled: 0
+  m_ShadowIntensity: 0.75
+  m_ShadowSoftness: 0
+  m_ShadowSoftnessFalloffIntensity: 0.5
+  m_ShadowVolumeIntensityEnabled: 0
+  m_ShadowVolumeIntensity: 0.75
+  m_LocalBounds:
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+  m_PointLightInnerAngle: 35.320175
+  m_PointLightOuterAngle: 273.63
+  m_PointLightInnerRadius: 4.537537
+  m_PointLightOuterRadius: 9.916178
+  m_ShapeLightParametricSides: 5
+  m_ShapeLightParametricAngleOffset: 0
+  m_ShapeLightParametricRadius: 1
+  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffOffset: {x: 0, y: 0}
+  m_ShapePath:
+  - {x: -70.259544, y: 92.3839, z: 0}
+  - {x: 2.795196, y: -0.43480965, z: 0}
+  - {x: 33.965195, y: -11.288718, z: 0}
+  - {x: 52.949284, y: 7.7912316, z: 0}
+  - {x: 85.092514, y: 26.200497, z: 0}
+  - {x: 20.49212, y: 81.85494, z: 0}
+  - {x: -51.858322, y: 148.9578, z: 0}
+  - {x: -85.96508, y: 134.93227, z: 0}
+  - {x: -111.885056, y: 158.02757, z: 0}
+  - {x: -157.98703, y: 140.95099, z: 0}
+  - {x: -132.93709, y: 116.935295, z: 0}
 --- !u!1 &2012638093
 GameObject:
   m_ObjectHideFlags: 0
