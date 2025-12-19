@@ -7,7 +7,7 @@ public class ClearSaveHotkey : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
-        if (Keyboard.current.f10Key.wasPressedThisFrame)
+        if (Keyboard.current.digit9Key.wasPressedThisFrame)
         {
             SaveManager.Clear();
             Debug.Log("💾 Save cleared (with f10)!");
