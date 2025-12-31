@@ -169,6 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
+  speed: 3
 --- !u!95 &765102
 Animator:
   serializedVersion: 7
@@ -13650,6 +13651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
+  speed: 3
 --- !u!95 &338366459
 Animator:
   serializedVersion: 7
@@ -17061,7 +17063,7 @@ Transform:
   m_GameObject: {fileID: 417361108}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -46.58, y: -63.39, z: 0}
+  m_LocalPosition: {x: 250.5, y: -9.3, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -17088,6 +17090,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 128
+  animatoor: {fileID: 0}
   climbSpeed: 3.5
   scarabHealth: {fileID: 31836133}
   hasWeapon: 0
@@ -22518,6 +22521,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &562862518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 562862519}
+  m_Layer: 15
+  m_Name: runPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &562862519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562862518}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 117.2, y: -2.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 675336302}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &565317170
 GameObject:
   m_ObjectHideFlags: 0
@@ -24646,7 +24680,7 @@ Transform:
   m_GameObject: {fileID: 619394800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0.15115207, w: 0.98851055}
-  m_LocalPosition: {x: -5.6, y: 109.6, z: 0}
+  m_LocalPosition: {x: 0.5, y: 131.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27114,9 +27148,9 @@ GameObject:
   - component: {fileID: 675336301}
   - component: {fileID: 675336300}
   - component: {fileID: 675336299}
-  - component: {fileID: 675336303}
   - component: {fileID: 675336304}
   - component: {fileID: 675336305}
+  - component: {fileID: 675336306}
   m_Layer: 15
   m_Name: spidi1 1_0
   m_TagString: Untagged
@@ -27138,6 +27172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
+  speed: 3
 --- !u!95 &675336300
 Animator:
   serializedVersion: 7
@@ -27227,23 +27262,10 @@ Transform:
   m_LocalPosition: {x: 457.94647, y: -5.8605957, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 562862519}
   m_Father: {fileID: 382699869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &675336303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675336298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62a0dd713749e54a8ef7d155951519b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mom: {fileID: 417361110}
-  health: {fileID: 31836133}
 --- !u!60 &675336304
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27326,6 +27348,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &675336306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675336298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4f2aafcb556f1147948e4bdebfeb139, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spider: {fileID: 675336299}
+  mom: {fileID: 417361110}
+  runStopper: {fileID: 562862519}
+  hp: 1
 --- !u!1 &676772199
 GameObject:
   m_ObjectHideFlags: 0
@@ -34543,6 +34581,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
+  speed: 3
 --- !u!60 &921651226
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -46242,7 +46281,7 @@ Transform:
   m_GameObject: {fileID: 1205512493}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 21.870008, y: -57.039997, z: 0}
+  m_LocalPosition: {x: 318.95, y: -2.949997, z: 0}
   m_LocalScale: {x: 0.3, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -47260,6 +47299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
+  speed: 3
 --- !u!95 &1228062171
 Animator:
   serializedVersion: 7
@@ -49865,6 +49905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
+  speed: 3
 --- !u!60 &1299561782
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -50596,7 +50637,7 @@ MonoBehaviour:
   m_ComponentVersion: 2
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.061
+  m_FalloffIntensity: 0.388
   m_Color: {r: 0.49056602, g: 0.34015664, b: 0.3955706, a: 1}
   m_Intensity: 0.9
   m_LightVolumeIntensity: 1
@@ -50606,7 +50647,7 @@ MonoBehaviour:
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
   m_AlphaBlendOnOverlap: 0
-  m_OverlapOperation: 0
+  m_OverlapOperation: 1
   m_NormalMapDistance: 3
   m_NormalMapQuality: 2
   m_UseNormalMap: 0
@@ -50617,8 +50658,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -36.447495, y: 73.369804, z: 0}
-    m_Extent: {x: 122.0394, y: 85.1569, z: 0}
+    m_Center: {x: -36.962795, y: 70.8598, z: 0}
+    m_Extent: {x: 121.52319, y: 82.6469, z: 0}
   m_PointLightInnerAngle: 121.69017
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 21.830576
@@ -50629,15 +50670,19 @@ MonoBehaviour:
   m_ShapeLightFalloffSize: 0.5
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -70.259544, y: 92.3839, z: 0}
+  - {x: -74.99548, y: 87.94318, z: 0}
   - {x: 2.795196, y: -0.43480965, z: 0}
   - {x: 33.965195, y: -11.288718, z: 0}
-  - {x: 52.949284, y: 7.7912316, z: 0}
-  - {x: 85.092514, y: 26.200497, z: 0}
-  - {x: 20.49212, y: 81.85494, z: 0}
-  - {x: -51.858322, y: 148.9578, z: 0}
-  - {x: -85.96508, y: 134.93227, z: 0}
-  - {x: -111.885056, y: 158.02757, z: 0}
+  - {x: 57.57564, y: 11.224241, z: 0}
+  - {x: 84.06144, y: 26.03183, z: 0}
+  - {x: 31.717163, y: 75.28991, z: 0}
+  - {x: 13.696599, y: 91.24709, z: 0}
+  - {x: -37.147247, y: 139.65144, z: 0}
+  - {x: -47.703316, y: 142.49185, z: 0}
+  - {x: -61.53623, y: 140.4323, z: 0}
+  - {x: -63.526722, y: 142.04277, z: 0}
+  - {x: -83.5376, y: 137.50162, z: 0}
+  - {x: -107.714066, y: 153.00618, z: 0}
   - {x: -157.98703, y: 140.95099, z: 0}
   - {x: -132.93709, y: 116.935295, z: 0}
 --- !u!4 &1319164701
