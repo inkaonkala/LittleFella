@@ -6,9 +6,12 @@ public class EnemyHP : MonoBehaviour
     [Header("reffers")]
     public SpiderEnemy spider;
     public MomMove  mom;
-    public float hp = 1;
+    public Transform runStopper;
+    
+    public float hp = 1.0f;
 
     private  BoxCollider2D col;
+    private bool isDead = false;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -21,6 +24,32 @@ public class EnemyHP : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (isDead)
+            return;
+
+        if (other.gameObject == mom.gameObject)
+        {
+            if (mom.animatoor.GetBool("IsHitting"))
+                TakeDamage(1);
+        }
+    }
+
+    void TakeDamage(float i)
+    {
+        hp -= i;
         
+        if (hp <= 0)
+            RunAndDie();
+    }
+
+    void RunAndDie()
+    {
+        isDead = true;
+
+        col.enabled = false;
+
+        spider.Run(runStopper.position);
     }
 }
+
+

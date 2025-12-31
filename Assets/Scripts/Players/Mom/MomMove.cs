@@ -17,7 +17,7 @@ public class MomMove : MonoBehaviour
     private bool isGrounded;
     private int jumpsLeft;
 
-    private Animator animatoor;
+    public Animator animatoor;
     private SpriteRenderer sr;
 
     //Climb
