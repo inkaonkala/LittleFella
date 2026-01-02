@@ -2480,7 +2480,7 @@ GameObject:
   - component: {fileID: 58440426}
   m_Layer: 12
   m_Name: HBoxL
-  m_TagString: Untagged
+  m_TagString: StrawHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17164,6 +17164,8 @@ MonoBehaviour:
   climbSpeed: 3.5
   scarabHealth: {fileID: 31836133}
   hasWeapon: 0
+  hitboxLeft: {fileID: 58440426}
+  hitboxRight: {fileID: 912108633}
 --- !u!212 &417361112
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -27218,9 +27220,9 @@ GameObject:
   - component: {fileID: 675336301}
   - component: {fileID: 675336300}
   - component: {fileID: 675336299}
-  - component: {fileID: 675336304}
   - component: {fileID: 675336305}
   - component: {fileID: 675336306}
+  - component: {fileID: 675336307}
   m_Layer: 15
   m_Name: spidi1 1_0
   m_TagString: Untagged
@@ -27242,7 +27244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mom: {fileID: 417361110}
   health: {fileID: 31836133}
-  speed: 3
+  speed: 10
 --- !u!95 &675336300
 Animator:
   serializedVersion: 7
@@ -27336,61 +27338,6 @@ Transform:
   - {fileID: 562862519}
   m_Father: {fileID: 382699869}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &675336304
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 675336298}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.49, y: 5.79}
-    newSize: {x: 5.49, y: 5.79}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 2.8891683, y: 1.1487328}
-      - {x: 3.022759, y: -2.0038857}
-      - {x: 2.2828555, y: -3.1703908}
-      - {x: -2.5108244, y: -3.299795}
-      - {x: -3.143738, y: -0.8307043}
-      - {x: -2.5803452, y: 1.996206}
-      - {x: -1.4517016, y: 3.0456815}
-      - {x: 0.80939484, y: 3.174933}
-  m_UseDelaunayMesh: 0
 --- !u!50 &675336305
 Rigidbody2D:
   serializedVersion: 5
@@ -27434,6 +27381,52 @@ MonoBehaviour:
   mom: {fileID: 417361110}
   runStopper: {fileID: 562862519}
   hp: 1
+--- !u!61 &675336307
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675336298}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0.04552102, y: -0.13667536}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.49, y: 5.79}
+    newSize: {x: 5.49, y: 5.79}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 5.6722646, y: 5.5166492}
+  m_EdgeRadius: 0
 --- !u!1 &676772199
 GameObject:
   m_ObjectHideFlags: 0
@@ -34120,7 +34113,7 @@ GameObject:
   - component: {fileID: 912108633}
   m_Layer: 12
   m_Name: HBoxR
-  m_TagString: Untagged
+  m_TagString: StrawHitBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

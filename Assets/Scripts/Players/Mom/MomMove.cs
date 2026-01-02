@@ -50,6 +50,7 @@ public class MomMove : MonoBehaviour
         animatoor = GetComponent<Animator>();
         sr = GetComponentInChildren<SpriteRenderer>();
         ogGravity = body.gravityScale;
+        DisaableHitboxes();
     }
 
     private void OnEnable()
@@ -164,7 +165,7 @@ public class MomMove : MonoBehaviour
 
     //Smack
 
-    private bool IsFacingLeft()
+    private bool IsFacingRight()
     {
         return sr.flipX;
     }
@@ -176,10 +177,10 @@ public class MomMove : MonoBehaviour
 
         Debug.Log("Box on");
 
-        if (IsFacingLeft())
-            hitboxLeft.enabled = true;
-        else
+        if (IsFacingRight())
             hitboxRight.enabled = true;
+        else
+            hitboxLeft.enabled = true;
     }
 
     private void DisaableHitboxes()

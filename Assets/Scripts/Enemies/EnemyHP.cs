@@ -24,12 +24,13 @@ public class EnemyHP : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other)
     {
+        
         if (isDead)
             return;
 
-        if (other.gameObject == mom.gameObject)
+        if (other.CompareTag("StrawHitBox"))
         {
-            if (mom.animatoor.GetBool("IsHitting"))
+                Debug.Log("TAKE DAMA");
                 TakeDamage(1);
         }
     }

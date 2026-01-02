@@ -6,6 +6,7 @@ TagManager:
   tags:
   - FellaTag
   - Klimbable
+  - StrawHitBox
   layers:
   - Default
   - TransparentFX
