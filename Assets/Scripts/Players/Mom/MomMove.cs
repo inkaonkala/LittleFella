@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class MomMove : MonoBehaviour
 {
@@ -31,6 +32,9 @@ public class MomMove : MonoBehaviour
 
     //TheStraw
     public bool hasWeapon = false;
+    [Header("HitBoxes")]
+    public Collider2D hitboxLeft;
+    public Collider2D hitboxRight;
 
 
 
@@ -140,12 +144,6 @@ public class MomMove : MonoBehaviour
         TryJump();
     }
 
-    private void OnSmack(InputAction.CallbackContext ctx)
-    {
-        if (!hasWeapon)
-            return;
-        animatoor.SetTrigger("Hit");
-    }
 
     private void HandleDown()
     {
@@ -165,9 +163,53 @@ public class MomMove : MonoBehaviour
     }
 
     //Smack
+
+    private bool IsFacingLeft()
+    {
+        return sr.flipX;
+    }
+
+    private void EnaableHitbox()
+    {
+        hitboxLeft.enabled = false;
+        hitboxRight.enabled = false;
+
+        Debug.Log("Box on");
+
+        if (IsFacingLeft())
+            hitboxLeft.enabled = true;
+        else
+            hitboxRight.enabled = true;
+    }
+
+    private void DisaableHitboxes()
+    {
+        Debug.Log("BOX off");
+        hitboxLeft.enabled = false;
+        hitboxRight.enabled = false;
+    }
+
+    IEnumerator HitboxTimer(float delay, float hitTime)
+    {
+        yield return new WaitForSeconds(delay);
+        EnaableHitbox();
+        yield return new WaitForSeconds(hitTime);
+        DisaableHitboxes();
+    }
+
+    private void OnSmack(InputAction.CallbackContext ctx)
+    {
+        if (!hasWeapon)
+            return;
+        
+        animatoor.SetTrigger("Hit");
+
+        StartCoroutine(HitboxTimer(0.2f, 0.4f));
+    }
+
     public void RefreshSmackBind()
     {
-        
+        hasWeapon = true;
     }
 
     private void TryJump()
