@@ -12,6 +12,7 @@ public class EnemyHP : MonoBehaviour
 
     private  BoxCollider2D col;
     private bool isDead = false;
+    public AudioSource fleeSound;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -24,7 +25,7 @@ public class EnemyHP : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D other)
     {
-        
+
         if (isDead)
             return;
 
@@ -48,6 +49,8 @@ public class EnemyHP : MonoBehaviour
         isDead = true;
 
         col.enabled = false;
+        if (fleeSound)
+            fleeSound.Play();
 
         spider.Run(runStopper.position);
     }
