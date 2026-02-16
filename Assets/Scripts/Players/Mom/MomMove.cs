@@ -36,11 +36,21 @@ public class MomMove : MonoBehaviour
     public Collider2D hitboxLeft;
     public Collider2D hitboxRight;
 
+    public AudioScript audioScript;
+
 
 
     private void Awake()
     {
         input = new MomInput();
+
+        audioScript = GetComponent<AudioScript>();
+        if (!audioScript)
+            audioScript = GetComponentInChildren<AudioScript>();
+        audioScript = GetComponent<AudioScript>();
+        if (!audioScript)
+            audioScript = GetComponentInChildren<AudioScript>();
+
     }
 
     void Start()
@@ -204,6 +214,7 @@ public class MomMove : MonoBehaviour
             return;
         
         animatoor.SetTrigger("Hit");
+        audioScript.PlayHit();
 
         StartCoroutine(HitboxTimer(0.2f, 0.4f));
     }
@@ -234,6 +245,8 @@ public class MomMove : MonoBehaviour
 
             if (isGrounded)
                 jumpsLeft = jumpMax - 1;
+            
+            audioScript.PlayJump();
         }
     }
 

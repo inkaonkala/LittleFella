@@ -18,6 +18,7 @@ public class FellaMove : MonoBehaviour
     private Vector2 movement;
     private FellaInput input;
     private bool isGrounded;
+    private AudioScript audioScript;
 
     private Animator animatoor;
     private SpriteRenderer sr;
@@ -38,6 +39,10 @@ public class FellaMove : MonoBehaviour
     private void Awake()
     {
         input = new FellaInput();
+
+        audioScript = GetComponent<AudioScript>();
+        if (!audioScript)
+            audioScript = GetComponentInChildren<AudioScript>();
 
     }
 
@@ -99,6 +104,7 @@ public class FellaMove : MonoBehaviour
         {
             body.linearVelocity = new Vector2(body.linearVelocity.x, jumpForceFella);
             animatoor.SetTrigger("isJumping");
+            audioScript.PlayJump();
         }
     }
 
@@ -120,6 +126,7 @@ public class FellaMove : MonoBehaviour
         }
 
         animatoor.SetTrigger("isBurbing");
+        audioScript.PlayBurb();
         float distanceToMom = Vector2.Distance(transform.position, mom.position);
         burbs--;
 
@@ -134,7 +141,7 @@ public class FellaMove : MonoBehaviour
         }
     }
 
-    // FIND Climb zone
+    // TOUCH ACTIVATED STUFF
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Klimbable"))
@@ -144,6 +151,13 @@ public class FellaMove : MonoBehaviour
             body.gravityScale = 0f;
             //prevent sudden fall
             body.linearVelocity = new Vector2(0f, 0f);
+//            audioScript.PlayClimb(); //SET THIS TO LOOP INSTEAD OF CALLING AGAIN AND AGAIN
+        }
+
+        if (other.CompareTag("healPoint"))
+        {
+            burbs++;
+            Destroy(other.gameObject);
         }
     }
 

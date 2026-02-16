@@ -30,6 +30,7 @@ public class SpiderEnemy : MonoBehaviour
         if (mom)
         {
             health.TakeDamage(1);
+            mom.audioScript.PlayHurt();
         }
     }
 
