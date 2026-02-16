@@ -22,9 +22,15 @@ public class LiftController : MonoBehaviour
     Vector3 _bottomPos;
     bool _running;
 
+    private AudioSource audio;
+
     void Awake()
     {
         _bottomPos = transform.position;
+        audio = GetComponent<AudioSource>();
+        if (audio != null)
+            audio.playOnAwake = false;
+
     }
 
     public void Activate()
@@ -68,6 +74,9 @@ public class LiftController : MonoBehaviour
 
     IEnumerator MoveTo(Vector3 target)
     {
+        if (audio != null)
+            audio.PlayOneShot(audio.clip);
+            
         Vector3 a = transform.position;
         Vector3 b = target;
         float t = 0f;

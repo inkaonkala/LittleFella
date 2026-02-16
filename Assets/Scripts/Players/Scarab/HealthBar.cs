@@ -19,6 +19,7 @@ public class HealthBar : MonoBehaviour
     void Start()
     {
         currentHealth = Mathf.Clamp(maxHealth, 0, maxHealth);
+    //    TakeDamage(5);
         updateHealthUI();
         OnHealthChange?.Invoke(currentHealth, maxHealth);
     }
