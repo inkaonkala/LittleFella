@@ -14,7 +14,7 @@ public class PauseScreen : MonoBehaviour
     [Header("Input")]
     [SerializeField] private InputActionReference pauseAction;
 
-    private bool isPaused;
+    private bool isPaused = false;
 
     private void Start()
     {
@@ -66,7 +66,7 @@ public class PauseScreen : MonoBehaviour
 
     public void Resume()
     {
-        if (!isPaused) return;
+    //    if (!isPaused) return;
         isPaused = false;
 
         if (pauseCanvas) pauseCanvas.SetActive(false);
@@ -79,6 +79,6 @@ public class PauseScreen : MonoBehaviour
     {
         Time.timeScale = 1f;
         AudioListener.pause = false;
-        SceneManager.LoadScene(openingSceneName);
+        SceneManager.LoadScene("Opening");
     }
 }
