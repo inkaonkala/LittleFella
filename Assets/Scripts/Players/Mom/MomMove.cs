@@ -104,7 +104,7 @@ public class MomMove : MonoBehaviour
         }
         
         animatoor.SetBool("isWalking", Mathf.Abs(movement.x) > 0.01f);
-        animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f);
+        animatoor.SetBool("isClimbing", inClimbZone && Mathf.Abs(movement.y) > 0.01f || Mathf.Abs(movement.y) > 0.01f);
 
         if (movement.x != 0f)
             sr.flipX = movement.x > 0f;
@@ -132,7 +132,8 @@ public class MomMove : MonoBehaviour
         {
             body.gravityScale = 0f;
             float vy = movement.y * climbSpeed;
-            body.linearVelocity = new Vector2(0f, vy);
+            float vx = movement.x * climbSpeed;
+            body.linearVelocity = new Vector2(vx, vy);
         }
 
     }
