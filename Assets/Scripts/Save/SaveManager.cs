@@ -29,16 +29,32 @@ public static class SaveManager
         PlayerPrefs.Save();
     }
 
-    public static bool TryGet(out string scene, out Vector3 pos, out string pointId)
-    {
-        scene = PlayerPrefs.GetString(K_SCENE, "");
-        pos = new Vector3(
-                    PlayerPrefs.GetFloat(K_SPAWN_X, 0),
-                    PlayerPrefs.GetFloat(K_SPAWN_Y, 0),
-                    PlayerPrefs.GetFloat(K_SPAWN_Z, 0));
-        pointId = PlayerPrefs.GetString(K_POINT_ID, "");
-        return HasSave;
-    }
+	public static bool TryGet(out string scene, out Vector3 pos, out string pointId)
+	{
+	    if (!HasSave)
+	    {
+	        scene = "";
+	        pos = default;
+	        pointId = "";
+	        return false;
+	    }
+
+	    scene = PlayerPrefs.GetString(K_SCENE, "");
+	    pointId = PlayerPrefs.GetString(K_POINT_ID, "");
+
+	    pos = new Vector3(
+	        PlayerPrefs.GetFloat(K_SPAWN_X, float.NaN),
+	        PlayerPrefs.GetFloat(K_SPAWN_Y, float.NaN),
+	        PlayerPrefs.GetFloat(K_SPAWN_Z, 0f)
+		    );
+
+	    // If x or y are NaN, something wasn't saved correctly
+	    if (float.IsNaN(pos.x) || float.IsNaN(pos.y))
+	        return false;
+
+    return true;
+	}
+
 
     public static void Clear()
     {
@@ -56,7 +72,7 @@ public static class SaveManager
 
     public static void MarkFlowaUsed(string flowerId)
     {
-        PlayerPrefs.GetInt($"flower_first_{flowerId}", 1);
+        PlayerPrefs.SetInt($"flower_first_{flowerId}", 1);
         PlayerPrefs.Save();
     }
 }

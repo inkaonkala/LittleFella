@@ -25,7 +25,7 @@ public class SavePoint : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player") && !other.CompareTag("FellaTag"))
+        if (!other.CompareTag("FellaTag"))
             return;
         if (Time.time - _lastTime < cooldown)
             return;
